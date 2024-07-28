@@ -15,7 +15,12 @@ const app=express();
 const port=process.env.PORT || 4000;
 app.use(express.json())
 
-app.use(cors())
+const corsOptions = {
+  origin: 'https://mern-blog-weld.vercel.app', 
+  credentials: true, 
+};
+
+app.use(cors(corsOptions));
 
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(cookie())
